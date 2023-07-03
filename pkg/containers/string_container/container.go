@@ -1,8 +1,8 @@
 package string_container
 
 import (
-	"lazy-container/pkg/containers/stringc"
-	"lazy-container/pkg/interfaces"
+	"github.com/lowl11/lazy-container/pkg/containers/stringc"
+	"github.com/lowl11/lazy-container/pkg/interfaces"
 	"sync"
 )
 

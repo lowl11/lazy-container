@@ -1,6 +1,6 @@
 package interfaces
 
-import "lazy-container/pkg/containers/stringc"
+import "github.com/lowl11/lazy-container/pkg/containers/stringc"
 
 type IString interface {
 	Len() int

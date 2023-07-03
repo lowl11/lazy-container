@@ -1,6 +1,6 @@
 package string_container
 
-import "lazy-container/pkg/containers/stringc"
+import "github.com/lowl11/lazy-container/pkg/containers/stringc"
 
 func (stringContainer *Container) ThreadSafe() {
 	stringContainer.threadSafe = true
