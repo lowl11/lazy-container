@@ -1,31 +1,35 @@
 package stringc
 
+// Len returns length of container
 func Len(container []string) int {
 	return len(container)
 }
 
+// Cap returns capacity of container
 func Cap(container []string) int {
 	return cap(container)
 }
 
+// Empty returns true if container is empty
 func Empty(container []string) bool {
 	return Len(container) == 0
 }
 
+// Clone returns copy of the current container
 func Clone(container []string) []string {
 	cloneArray := make([]string, Len(container))
-	for i := 0; i < len(container); i++ {
-		cloneArray[i] = container[i]
-	}
+	copy(cloneArray, container)
 	return cloneArray
 }
 
+// Each runs EachFunc typed function for every item in container
 func Each(container []string, eachFunc EachFunc) {
 	for _, item := range container {
 		eachFunc(item)
 	}
 }
 
+// Where returns container filtered by given WhereFunc
 func Where(container []string, whereFunc WhereFunc) []string {
 	newContainer := make([]string, 0, len(container))
 	for _, item := range container {
@@ -36,6 +40,7 @@ func Where(container []string, whereFunc WhereFunc) []string {
 	return newContainer
 }
 
+// Count returns quantity of container filtered by given CountFunc
 func Count(container []string, countFunc CountFunc) int {
 	var counter int
 	for _, item := range container {
@@ -46,6 +51,7 @@ func Count(container []string, countFunc CountFunc) int {
 	return counter
 }
 
+// Contains returns true if given search value is found
 func Contains(container []string, searchValue string) bool {
 	for _, item := range container {
 		if searchValue == item {
@@ -56,6 +62,7 @@ func Contains(container []string, searchValue string) bool {
 	return false
 }
 
+// IndexOf returns index of found element, if it is not found returns -1
 func IndexOf(container []string, searchValue string) int {
 	for index, item := range container {
 		if searchValue == item {
@@ -66,6 +73,7 @@ func IndexOf(container []string, searchValue string) int {
 	return -1
 }
 
+// Remove deletes element in container at given index
 func Remove(container []string, removeIndex uint) []string {
 	if int(removeIndex) > len(container) {
 		return container

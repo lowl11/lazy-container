@@ -6,6 +6,7 @@ import (
 	"sync"
 )
 
+// Container is a string container using stringc.Container
 type Container struct {
 	container stringc.Container
 
@@ -13,6 +14,7 @@ type Container struct {
 	mutex      sync.Mutex
 }
 
+// New (constructor) creates new instance of Container with given slice of strings as argument
 func New(values ...string) interfaces.IString {
 	return &Container{
 		container: stringc.New(values...),
