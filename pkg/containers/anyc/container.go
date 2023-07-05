@@ -1,10 +1,10 @@
-package intc
+package anyc
 
-// Container wrapper type for slice of numbers with a bunch of methods
-type Container []int
+// Container wrapper type for slice of any values with a bunch of methods
+type Container []any
 
-// New (constructor) creates new container with given slice of numbers as argument
-func New(container ...int) Container {
+// New (constructor) creates new container with given slice of any values as argument
+func New(container ...any) Container {
 	return container
 }
 
@@ -44,16 +44,11 @@ func (container Container) Clone() Container {
 }
 
 // Contains returns true if given search value is found
-func (container Container) Contains(searchValue int) bool {
+func (container Container) Contains(searchValue any) bool {
 	return Contains(container, searchValue)
 }
 
 // IndexOf returns index of found element, if it is not found returns -1
-func (container Container) IndexOf(searchValue int) int {
+func (container Container) IndexOf(searchValue any) int {
 	return IndexOf(container, searchValue)
-}
-
-// Sum returns sum of all container values
-func (container Container) Sum() int {
-	return Sum(container)
 }
