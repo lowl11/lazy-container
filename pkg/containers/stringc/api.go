@@ -81,3 +81,12 @@ func Remove(container []string, removeIndex uint) []string {
 
 	return append(container[:removeIndex], container[removeIndex+1:]...)
 }
+
+// NotNull returns empty string, not NULL
+func NotNull(value *string) string {
+	if value == nil {
+		return ""
+	}
+
+	return *value
+}
