@@ -6,6 +6,8 @@ type IArrayList[T any] interface {
 	Push(...T) IArrayList[T]
 	Remove(int) IArrayList[T]
 
+	Get(genc.GetFunc[T]) *T
+
 	Contains(genc.ConditionFunc[T]) bool
 	IndexOf(genc.ConditionFunc[T]) int
 

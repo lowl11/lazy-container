@@ -48,6 +48,18 @@ func (container *Container[T]) Remove(index int) interfaces.IArrayList[T] {
 	return container
 }
 
+func (container *Container[T]) Get(getFunc genc.GetFunc[T]) *T {
+	index := container.IndexOf(func(item T) bool {
+		return getFunc(item)
+	})
+
+	if index < 0 {
+		return nil
+	}
+
+	return &container.inner[index]
+}
+
 func (container *Container[T]) Contains(conditionFunc genc.ConditionFunc[T]) bool {
 	container.lock()
 	defer container.unlock()
